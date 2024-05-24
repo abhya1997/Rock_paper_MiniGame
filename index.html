@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock _game</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #main1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    img{
+        border-radius: 50%;
+    }
+    img:hover{
+        opacity:0.5;
+        background-color: black;
+        cursor: pointer;
+    }
+    h1{
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+    #con{
+        border-radius: 2px solid black;
+        text-align: center;
+        background-color: brown;
+        color: black;
+        height: 50px;
+        font-weight: bold;
+        font-size: larger;
+        
+    }
+    #scorespan{
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div id="main1">
+    <div  class="choices" id="paper"> <img src="download.png"></div>
+    <div class="choices" id="rock"><img src="download (1).jpg"></div>
+    <div class="choices"id="sic" ><img src="download.jpg"></div>
+</div>
+<div>
+    
+</div>
+<div id="scorespan">
+    <span id="computerscore">Computer Score :</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="userscore">User Score :</span>
+</div>
+<div>
+    <p id="con">Lets play the game</p>
+</div>
+<script>
+    let computerPoints=0;
+    let userPoints=0;
+    let str=0;
+let a= document.querySelectorAll(".choices");
+a.forEach((choise)=>{
+   // console.log(choise);
+    choise.addEventListener("click",()=>{
+        let userchoice=choise.getAttribute("id");
+        console.log(userchoice);
+        computer(userchoice);
+    })
+    
+});
+
+const computer= function(userchoice){
+let random=["paper","rock","sic"];
+let num=Math.floor(Math.random()*3);
+if(random[num]===userchoice){
+    console.log("hey its draw");
+    document.getElementById("con").innerText="Its Draw play Again";
+}
+else{
+    //paper
+    if(userchoice==="sic"){
+        console.log("computer wins");
+        ++computerPoints;
+        document.getElementById("computerscore").innerText="Computer Points :"+computerPoints;
+        document.getElementById("con").innerText="Computer wins ";
+    }
+    
+    else if(userchoice==="rock"){
+        console.log("user wins");
+        ++userPoints;
+        document.getElementById("userscore").innerText="User Points :"+userPoints;
+        document.getElementById("con").innerText="User wins ";
+
+    }
+    //sic
+    else if(userchoice=="paper")
+    {
+        console.log("user wins");
+        ++userPoints;
+        document.getElementById("userscore").innerText="User Points :"+userPoints;
+        document.getElementById("con").innerText="User wins";
+
+
+    }
+    else if(userchoice=="rock"){
+        console.log("computer wins");
+        ++computerPoints;
+        document.getElementById("computerscore").innerText="Computer Points :"+computerPoints;
+        document.getElementById("con").innerText="Computer wins";
+
+    }
+    //rock
+    else if(userchoice=="sic"){
+        console.log("user wins");
+        ++userPoints;
+        document.getElementById("userscore").innerText="User Points :"+userPoints;
+        document.getElementById("con").innerText="User wins";
+
+
+    }
+    else if(userchoice==="paper"){
+        console.log("computer wins");
+        ++computerPoints;
+        document.getElementById("computerscore").innerText="Computer Points :"+computerPoints;
+        document.getElementById("con").innerText="Computer wins";
+
+    }
+}
+}
+</script>
+</body>
+</html>
